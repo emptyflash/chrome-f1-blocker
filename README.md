@@ -19,8 +19,7 @@ A Chrome extension that blocks the F1 key from opening the Chrome help tab.
 The extension monitors tab navigation and detects when a Chrome help page is about to open. When F1 is pressed:
 1. The extension detects the attempt to open `https://support.google.com/chrome`
 2. The help tab is prevented from opening
-3. Your configured action is executed instead
-4. F1 blocking can be toggled on/off in the extension popup
+3. F1 blocking can be toggled on/off in the extension popup
 
 ## Files
 

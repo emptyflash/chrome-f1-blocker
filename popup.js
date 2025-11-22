@@ -1,38 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const actionType = document.getElementById('actionType');
-  const actionMessage = document.getElementById('actionMessage');
-  const saveButton = document.getElementById('saveConfig');
-  const statusDiv = document.getElementById('status');
   const f1BlockingCheckbox = document.getElementById('f1Blocking');
+  const statusDiv = document.getElementById('status');
 
   // Load current configuration
-  chrome.storage.sync.get(['f1Action', 'f1Message', 'f1Blocking'], function(result) {
-    actionType.value = result.f1Action || 'alert';
-    actionMessage.value = result.f1Message || 'F1 key pressed!';
+  chrome.storage.sync.get(['f1Blocking'], function(result) {
     f1BlockingCheckbox.checked = result.f1Blocking !== false; // Default to true
   });
 
-  // Save configuration
-  saveButton.addEventListener('click', function() {
+  // Save configuration when checkbox changes
+  f1BlockingCheckbox.addEventListener('change', function() {
     const config = {
-      f1Action: actionType.value,
-      f1Message: actionMessage.value || 'F1 key pressed!',
       f1Blocking: f1BlockingCheckbox.checked
     };
 
     chrome.storage.sync.set(config, function() {
-      // Send message to all tabs to update F1 blocking
-      chrome.tabs.query({}, function(tabs) {
-        tabs.forEach(function(tab) {
-          chrome.tabs.sendMessage(tab.id, {
-            action: 'toggleF1Blocking',
-            enabled: f1BlockingCheckbox.checked
-          });
-        });
-      });
-
       // Show success message
-      statusDiv.textContent = 'Configuration saved!';
+      statusDiv.textContent = f1BlockingCheckbox.checked ? 'F1 blocking enabled!' : 'F1 blocking disabled!';
       statusDiv.className = 'status success';
       statusDiv.style.display = 'block';
 

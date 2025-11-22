@@ -1,6 +1,6 @@
 // Background service worker for handling tab blocking
 chrome.runtime.onInstalled.addListener(() => {
-  // Set default action when extension is installed
+  // Set default blocking state when extension is installed
   chrome.storage.sync.set({
     f1Blocking: true
   });

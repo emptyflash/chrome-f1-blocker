@@ -60,28 +60,12 @@
   <p style="text-align: center; color: #666; font-size: 12px; margin-bottom: 15px;">Blocks F1 from opening Chrome help tab</p>
 
   <div class="section">
-    <label for="actionType">Action When F1 Pressed:</label>
-    <select id="actionType">
-      <option value="alert">Show Notification</option>
-      <option value="console">Log to Console</option>
-      <option value="newTab">Open New Tab</option>
-    </select>
-  </div>
-
-  <div class="section">
-    <label for="actionMessage">Action Message:</label>
-    <input type="text" id="actionMessage" placeholder="Enter message for action...">
-  </div>
-
-  <button id="saveConfig">Save Configuration</button>
-
-  <div class="section">
     <label style="display: flex; align-items: center; cursor: pointer;">
       <input type="checkbox" id="f1Blocking" checked>
       <span style="margin-left: 8px;">Enable F1 Help Tab Blocking</span>
     </label>
     <p style="font-size: 11px; color: #666; margin-top: 5px;">
-      Prevents F1 from opening the Chrome help tab and executes your configured action instead
+      Prevents F1 from opening the Chrome help tab
     </p>
   </div>
 
