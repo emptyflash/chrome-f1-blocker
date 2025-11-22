@@ -5,20 +5,16 @@
   "description": "A chrome extension to block the F1 key",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Enable or disable F1 blocking"
+    "default_title": "Enable or disable F1 blocking",
+    "default_icon": {
+      "16": "icon-16.svg",
+      "48": "icon-48.svg",
+      "128": "icon-128.svg"
+    }
   },
   "permissions": [
     "storage",
-    "notifications",
-    "activeTab",
     "webNavigation"
-  ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "run_at": "document_start"
-    }
   ],
   "background": {
     "service_worker": "background.js"

@@ -23,8 +23,9 @@ The extension monitors tab navigation and detects when a Chrome help page is abo
 
 ## Files
 
-- `manifest.json` - Extension configuration with webNavigation permission
+- `manifest.json` - Extension configuration with minimal permissions
 - `background.js` - Service worker that monitors and blocks help tabs
 - `popup.html` - Configuration interface
 - `popup.js` - Configuration management and storage
+- `PRIVACY.md` - Privacy policy detailing data handling practices
 
